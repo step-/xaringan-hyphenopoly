@@ -1,0 +1,14 @@
+.remark-slide div:not(.dontHyphenate) > p,
+.remark-slide div:not(.dontHyphenate) > ul li,
+.remark-slide div:not(.dontHyphenate) > ol li {
+    text-align: justify;
+    hyphens: auto;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+}
+
+/* commonly found in other CSS templates */
+.small {
+    font-size: 80%;
+}

@@ -1,0 +1,118 @@
+---
+title: "Hyphenate [xaringan](https://github.com/yihui/xaringan) Slides"
+subtitle: "With [Hyphenopoly.js](https://github.com/mnater/Hyphenopoly)"
+author: ""
+institute: "proof of concept"
+date: ""
+output:
+  xaringan::moon_reader:
+    css: [ "default", "default-fonts", "xa/hyphenopoly.css" ]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      beforeInit: [ "xa/hyphenopoly.js", "./Hyphenopoly/Hyphenopoly_Loader.js" ]
+---
+
+exclude: true
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+???
+
+Text excerpts from <https://en.wikipedia.org> and <https://de.wikipedia.org>
+
+---
+
+.center[Hyphenated and Justified]
+
+.pull-left.small[
+
+#### Deutsch
+
+Ihr Sprachraum umfasst Deutschland, Österreich, die Deutschschweiz, Liechtenstein, Luxemburg, Ostbelgien, Südtirol, das Elsass und Lothringen sowie Nordschleswig.
+* Außerdem ist sie eine Minderheitensprache in einigen europäischen und außereuropäischen Ländern, z. B. in Rumänien und Südafrika, sowie Nationalsprache im afrikanischen Namibia.
+  * Die Standardsprache, das Standarddeutsche, setzt sich aus Standardvarietäten der Dachsprache zusammen.
+
+]
+
+.pull-right.small[
+
+#### English
+
+English is the most commonly spoken language in the United Kingdom, the United States, Canada, Australia, Ireland and New Zealand, and it is widely spoken in some areas of the Caribbean, Africa and South Asia.
+* It is a co-official language of the United Nations, the European Union and many other world and regional international organisations.
+  * it has been significantly influenced by other Germanic languages, particularly Norse, and to a greater extent by Latin and French.
+
+]
+
+.footnote[
+
+[Fußnote] Außerdem ist sie eine Minderheitensprache in einigen europäischen und außereuropäischen Ländern, z. B. in Rumänien und Südafrika, sowie Nationalsprache im afrikanischen Namibia.
+
+[Footnote]
+English is the most commonly spoken language in the United Kingdom, the United States, Canada, Australia, Ireland and New Zealand, and it is widely spoken in some areas of the Caribbean, Africa and South Asia.
+
+]
+
+---
+
+.center[Not Hyphenated Nor Justified]
+
+.pull-left.small.dontHyphenate[
+
+#### Deutsch
+
+Ihr Sprachraum umfasst Deutschland, Österreich, die Deutschschweiz, Liechtenstein, Luxemburg, Ostbelgien, Südtirol, das Elsass und Lothringen sowie Nordschleswig.
+* Außerdem ist sie eine Minderheitensprache in einigen europäischen und außereuropäischen Ländern, z. B. in Rumänien und Südafrika, sowie Nationalsprache im afrikanischen Namibia.
+  * Die Standardsprache, das Standarddeutsche, setzt sich aus Standardvarietäten der Dachsprache zusammen.
+
+]
+
+.pull-right.small.dontHyphenate[
+
+#### English
+
+English is the most commonly spoken language in the United Kingdom, the United States, Canada, Australia, Ireland and New Zealand, and it is widely spoken in some areas of the Caribbean, Africa and South Asia.
+* It is a co-official language of the United Nations, the European Union and many other world and regional international organisations.
+  * it has been significantly influenced by other Germanic languages, particularly Norse, and to a greater extent by Latin and French.
+
+]
+
+.footnote.dontHyphenate[
+
+[Fußnote] Außerdem ist sie eine Minderheitensprache in einigen europäischen und außereuropäischen Ländern, z. B. in Rumänien und Südafrika, sowie Nationalsprache im afrikanischen Namibia.
+
+[Footnote]
+English is the most commonly spoken language in the United Kingdom, the United States, Canada, Australia, Ireland and New Zealand, and it is widely spoken in some areas of the Caribbean, Africa and South Asia.
+
+]
+
+---
+
+.small[
+
+### Structure
+
+Clone or download the [Hyphenopoly repo](https://github.com/mnater/Hyphenopoly) and unpack it in `Hyphenopoly/`.
+
+```
+Hyphenopoly/
+├── ...
+├── Hyphenopoly_Loader.js
+└── ...
+Hyphenopoly-demo.Rmd
+xa
+├── hyphenopoly.css
+└── hyphenopoly.js
+```
+
+### Limitations
+
+While hyphenology.js supports multiple languages in the same document - and hyphenates each language by its corresponding rules - this feature isn't available from xaringan because
+I can't find a way to selectively set attribute `lang` for certain HTML elements from the R markdown source.  Therefore, all text is hyphenated according to the rules of the default language set in `xa/hyphenology.js` (German, in this example).
+
+]
